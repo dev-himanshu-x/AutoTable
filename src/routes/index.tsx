@@ -83,6 +83,8 @@ function App() {
     });
   };
 
+  // https://api.postalpincode.in/pincode/273164
+
   const handleCancel = () => setIsModalOpen(false);
 
   const Finish = (values: any) => {
@@ -139,11 +141,10 @@ function App() {
             <div className="flex items-center gap-1 p-0.5 rounded-lg bg-zinc-100 dark:bg-zinc-800 border border-zinc-200/80 dark:border-zinc-700">
               <button
                 onClick={() => setIsDarkMode(false)}
-                className={`rounded-md p-1.5 transition-all duration-200 ${
-                  !isDarkMode
+                className={`rounded-md p-1.5 transition-all duration-200 ${!isDarkMode
                     ? "bg-white dark:bg-zinc-700 shadow-sm text-amber-500"
                     : "text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-300"
-                }`}
+                  }`}
                 aria-label="Light theme"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" height="16" viewBox="0 -960 960 960" width="16" fill="currentColor">
@@ -152,11 +153,10 @@ function App() {
               </button>
               <button
                 onClick={() => setIsDarkMode(true)}
-                className={`rounded-md p-1.5 transition-all duration-200 ${
-                  isDarkMode
+                className={`rounded-md p-1.5 transition-all duration-200 ${isDarkMode
                     ? "bg-white dark:bg-zinc-700 shadow-sm text-indigo-400"
                     : "text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-300"
-                }`}
+                  }`}
                 aria-label="Dark theme"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" height="16" viewBox="0 -960 960 960" width="16" fill="currentColor">
