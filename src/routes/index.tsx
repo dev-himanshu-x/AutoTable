@@ -24,7 +24,6 @@ function App() {
   const [modalForm] = Form.useForm();
   const { defaultAlgorithm, darkAlgorithm } = theme;
   const [isDarkMode, setIsDarkMode] = useState(false);
-  const [hide, setHide] = useState(false);
 
   useEffect(() => {
     const stored = localStorage.getItem("theme");
@@ -83,8 +82,6 @@ function App() {
     });
   };
 
-  // https://api.postalpincode.in/pincode/273164
-
   const handleCancel = () => setIsModalOpen(false);
 
   const Finish = (values: any) => {
@@ -104,7 +101,6 @@ function App() {
       },
     }));
     setColumns(newColumns);
-    setHide(true)
     modalForm.resetFields();
     setIsModalOpen(false);
   };
@@ -126,15 +122,10 @@ function App() {
     >
       <div className="min-h-screen bg-gradient-to-br from-indigo-100 via-slate-100 to-purple-50 dark:from-zinc-900 dark:via-zinc-900 dark:to-zinc-800 transition-colors duration-300">
         <header className="sticky top-0 z-10 backdrop-blur-md bg-white/70 dark:bg-zinc-900/70 border-b border-zinc-200/60 dark:border-zinc-700/60">
-          <div className="mx-auto max-w-6xl px-4 sm:px-6 h-14 flex items-center justify-between">
-            <div className="flex items-center gap-2.5">
-              <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-sm">
-                <svg xmlns="http://www.w3.org/2000/svg" height="18" width="18" viewBox="0 -960 960 960" fill="white">
-                  <path d="M120-120v-720h720v720H120Zm80-520h520v-120H200v120Zm190 240h140v-160H390v160Zm0 200h140v-120H390v120ZM200-400h110v-160H200v160Zm410 0h150v-160H610v160ZM200-200h110v-120H200v120Zm410 0h150v-120H610v120Z" />
-                </svg>
-              </div>
+          <div className="w-full px-4 sm:px-6 lg:px-10 h-14 flex items-center justify-between">
+            <div className="flex items-center">
               <h1 className="text-lg font-semibold text-zinc-800 dark:text-zinc-100 tracking-tight">
-                JSON Table
+                Auto Table
               </h1>
             </div>
 
@@ -167,11 +158,9 @@ function App() {
           </div>
         </header>
 
-        <main className="mx-auto max-w-6xl px-4 sm:px-6 py-6">
+        <main className="w-full px-4 sm:px-6 lg:px-10 py-6">
           <section className="rounded-xl border border-zinc-200/80 dark:border-zinc-700 bg-white dark:bg-zinc-800/90 p-5 shadow-sm">
-            <p className="text-sm text-zinc-500 dark:text-zinc-400 mb-3">
-              Paste any public JSON API endpoint to view its data as a table.
-            </p>
+            <p className="text-sm text-zinc-500 dark:text-zinc-400 mb-3">Enter API URL.</p>
             <Form onFinish={getData} layout="inline" className="w-full" style={{ display: "flex", gap: 12, flexWrap: "nowrap" }}>
               <Form.Item
                 rules={[{ required: true, message: "Please enter a URL" }]}
@@ -193,7 +182,7 @@ function App() {
             </Form>
           </section>
 
-          {hide && (
+          {columns.length > 0 && (
             <section className="mt-6 rounded-xl border border-zinc-200/80 dark:border-zinc-700 bg-white dark:bg-zinc-800/90 shadow-sm overflow-hidden">
               <div className="flex items-center justify-between gap-4 px-5 py-3.5 border-b border-zinc-200/80 dark:border-zinc-700">
                 <div className="flex items-center gap-2">

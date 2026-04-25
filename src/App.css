@@ -1,18 +1,3 @@
 @import "tailwindcss";
 
-.clamp-2 {
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  word-break: break-word;
-  word-wrap: break-word;
-}
-
 @custom-variant dark (&:where(.dark, .dark *));
-
-.col{
-  background-color: rgb(95, 95, 95);
-  color: whitesmoke;
-}
